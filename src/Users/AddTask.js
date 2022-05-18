@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const AddTask = () => {
-    const handleAddTask = () => {
-
+    const handleAddTask = (event) => {
+        event.preventDefault();
+        const taskName = event.target.taskName.value;
+        const description = event.target.description.value;
+        const tasks = { taskName, description };
+        fetch('http://localhost:5000/task', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(tasks)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    console.log(data);
+                    event.target.reset();
+                    toast.success('Task Added Successfully!')
+                }
+            })
     }
     return (
         <div>

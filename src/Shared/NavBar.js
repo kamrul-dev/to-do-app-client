@@ -19,7 +19,7 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <Link to="/" className='mr-5'><li>Task List</li></Link>
+                        <Link to="/appMain" className='mr-5'><li>Task List</li></Link>
                         <Link to="/appMain/addTask" className='mr-5'><li>Add Task</li></Link>
                     </ul>
                 </div>

@@ -28,13 +28,13 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <Link to="/appMain/allTask" className='mr-5'><li>All Task </li></Link>
-                        <Link to="/appMain/addTask" className='mr-5'><li>Add Task</li></Link>
+                        <Link to="/appMain/allTask" className='btn-primary p-2 rounded-lg border-2 mr-5'><li>All Task </li></Link>
+                        <Link to="/appMain/addTask" className='btn-primary p-2 rounded-lg border-2 mr-5'><li>Add Task</li></Link>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
-                        user && <button onClick={handleSignOut}>LogOut</button>
+                        user && <button onClick={handleSignOut} className="btn">LogOut</button>
                     }
                 </div>
             </div>

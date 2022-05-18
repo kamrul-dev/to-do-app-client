@@ -30,8 +30,8 @@ const AddTask = () => {
                     <h2 className='text-xl text-center'>Add Task</h2>
                     <div className="card-body items-center text-center">
                         <form onSubmit={handleAddTask}>
-                            <input type="text" name='taskName' placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
-                            <input type="text" name='description' placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
+                            <input type="text" name='taskName' placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required/>
+                            <input type="text" name='description' placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required/>
                             <button className="btn btn-primary">Add</button>
                         </form>
                     </div>

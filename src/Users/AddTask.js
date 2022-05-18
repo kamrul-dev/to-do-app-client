@@ -1,6 +1,9 @@
 import React from 'react';
 
 const AddTask = () => {
+    const handleAddTask = () => {
+
+    }
     return (
         <div>
             <h2 className=''>All Tasks</h2>
@@ -8,11 +11,11 @@ const AddTask = () => {
                 <div className="card  w-96 bg-base-100 shadow-xl">
                     <h2 className='text-xl text-center'>Add Task</h2>
                     <div className="card-body items-center text-center">
-                        <input type="text" placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
-                        <input type="text" placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
-                        <div className="card-actions">
+                        <form onSubmit={handleAddTask}>
+                            <input type="text" name='taskName' placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
+                            <input type="text" name='description' placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" />
                             <button className="btn btn-primary">Add</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

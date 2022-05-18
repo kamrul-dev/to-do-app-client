@@ -7,7 +7,6 @@ const AppMain = () => {
     return (
         <div className='container mx-auto'>
             <NavBar></NavBar>
-            <AllTask></AllTask>
         </div>
     );
 };

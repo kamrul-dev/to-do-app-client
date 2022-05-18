@@ -30,7 +30,7 @@ const AllTask = () => {
     }
     return (
         <div>
-            <h2>All Task {tasks.length}</h2>
+            <h2 className='text-xl font-bold text-center mt-5'>Total Task: {tasks.length}</h2>
             <div className='grid lg:grid-cols-3 md gap-5 p-5'>
                 {
                     tasks.map(task => <Task

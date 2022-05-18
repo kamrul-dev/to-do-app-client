@@ -1,7 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../firebase.init';
 
 const NavBar = () => {
+    const [user] = useAuthState(auth);
+    const handleSignOut = () => {
+        signOut(auth);
+        toast.success('Successfully Logged Out');
+    }
     return (
         <>
             <div className="navbar bg-base-100">
@@ -11,20 +20,22 @@ const NavBar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to="/" className='mr-5'><li>Task List</li></Link>
+                        <Link to="/appMain/allTask" className='mr-5'><li>All Task</li></Link>
                             <Link to="/appMain/addTask" className='mr-5'><li>Add Task</li></Link>
                         </ul>
                     </div>
-                    <Link to="/appMain" className="btn btn-ghost normal-case text-xl">To Do App</Link>
+                    <Link to="/appMain/allTask" className="btn btn-ghost normal-case text-xl">To Do App</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <Link to="/appMain" className='mr-5'><li>Task List</li></Link>
+                        <Link to="/appMain/allTask" className='mr-5'><li>All Task </li></Link>
                         <Link to="/appMain/addTask" className='mr-5'><li>Add Task</li></Link>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    {
+                        user && <button onClick={handleSignOut}>LogOut</button>
+                    }
                 </div>
             </div>
             <Outlet></Outlet>

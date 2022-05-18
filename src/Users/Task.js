@@ -7,7 +7,6 @@ const Task = ({ task, handleTaskDelete }) => {
             <div className="card lg:max-w-lg bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">{taskName}</h2>
-                    <p>{_id}</p>
                     <p>{description}</p>
                     <div className="card-actions justify-center mt-4">
                         <button className="btn btn-primary">Complete</button>

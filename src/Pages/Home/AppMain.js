@@ -1,9 +1,10 @@
 import React from 'react';
+import NavBar from '../../Shared/NavBar';
 
 const AppMain = () => {
     return (
-        <div>
-            <h2>App main page</h2>
+        <div className='container mx-auto'>
+            <NavBar></NavBar>
         </div>
     );
 };

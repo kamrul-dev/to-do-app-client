@@ -15,7 +15,7 @@ const NavBar = () => {
                             <Link to="/appMain/addTask" className='mr-5'><li>Add Task</li></Link>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">To Do App</a>
+                    <Link to="/" className="btn btn-ghost normal-case text-xl">To Do App</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

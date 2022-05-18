@@ -7,7 +7,7 @@ const AddTask = () => {
         const taskName = event.target.taskName.value;
         const description = event.target.description.value;
         const tasks = { taskName, description };
-        fetch('http://localhost:5000/task', {
+        fetch('https://still-woodland-89709.herokuapp.com/task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,8 +30,8 @@ const AddTask = () => {
                     <h2 className='text-xl text-center'>Add Task</h2>
                     <div className="card-body items-center text-center">
                         <form onSubmit={handleAddTask}>
-                            <input type="text" name='taskName' placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required/>
-                            <input type="text" name='description' placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required/>
+                            <input type="text" name='taskName' placeholder='Task Name' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required />
+                            <input type="text" name='description' placeholder='Description' className=" mb-3 input input-bordered input-primary w-full max-w-xs" required />
                             <button className="btn btn-primary">Add</button>
                         </form>
                     </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 import Task from './Task';
 
@@ -9,6 +10,20 @@ const AllTask = () => {
             .then(res => res.json())
             .then(data => setTasks(data))
     }, []);
+
+    const handleTaskDelete = (id) => {
+        const url = `http://localhost:5000/task/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = tasks.filter(task => task._id !== id);
+                setTasks(remaining);
+                toast.success('Sucessfully Deleted !')
+            })
+    }
 
     if (!tasks.length > 0) {
         return <Loading></Loading>
@@ -21,6 +36,7 @@ const AllTask = () => {
                     tasks.map(task => <Task
                         key={task._id}
                         task={task}
+                        handleTaskDelete={handleTaskDelete}
                     ></Task>)
                 }
             </div>

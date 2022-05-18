@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading';
 import Task from './Task';
 
 const AllTask = () => {
@@ -7,7 +8,11 @@ const AllTask = () => {
         fetch('http://localhost:5000/task')
             .then(res => res.json())
             .then(data => setTasks(data))
-    }, [])
+    }, []);
+
+    if (!tasks.length > 0) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h2>All Task {tasks.length}</h2>

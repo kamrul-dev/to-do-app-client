@@ -25,6 +25,10 @@ const AllTask = () => {
             })
     }
 
+    const handleComplete = () => {
+        // get the post by id and set the class
+        toast.success('Task Completed successfully!')
+    }
 
     if (!tasks.length > 0) {
         return <Loading></Loading>
@@ -38,6 +42,7 @@ const AllTask = () => {
                         key={task._id}
                         task={task}
                         handleTaskDelete={handleTaskDelete}
+                        handleComplete={handleComplete}
                     ></Task>)
                 }
             </div>
